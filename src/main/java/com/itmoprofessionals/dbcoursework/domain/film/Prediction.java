@@ -1,6 +1,8 @@
 package com.itmoprofessionals.dbcoursework.domain.film;
 
 import com.itmoprofessionals.dbcoursework.domain.employee.role.Producer;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,7 +13,10 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @Entity
+@Builder
+@AllArgsConstructor
 public class Prediction {
+
     @Id
     @GeneratedValue
     private UUID id;

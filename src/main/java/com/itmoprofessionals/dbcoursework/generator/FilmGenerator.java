@@ -38,6 +38,7 @@ public final class FilmGenerator {
         personal.getProducerList().forEach(p -> {
             p.setFilm(film);
             p.setContract(ContractGenerator.createContract(company, p));
+            p.getPredictions().add(PredictionGenerator.createPrediction(p));
         });
 
         personal.getScriptWriterList().forEach(sw -> {

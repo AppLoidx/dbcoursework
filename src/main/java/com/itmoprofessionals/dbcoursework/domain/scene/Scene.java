@@ -1,12 +1,14 @@
 package com.itmoprofessionals.dbcoursework.domain.scene;
 
 import com.itmoprofessionals.dbcoursework.domain.film.Film;
+import com.itmoprofessionals.dbcoursework.domain.item.Prop;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,16 +38,25 @@ public class Scene {
     @ManyToOne
     private Film film;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Scene scene;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Schedule schedule;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Place> place;
 
     // mapped relatives
 
-    @OneToMany(mappedBy = "scene")
-    private List<Occupation> occupationList;
+    @Builder.Default
+    @OneToMany(mappedBy = "scene", cascade = CascadeType.ALL)
+    private List<Occupation> occupationList = new ArrayList<>();
+
+    @Builder.Default
+    @ManyToMany(mappedBy = "scene", cascade = CascadeType.ALL)
+    private List<Prop> props = new ArrayList<>();
+
 
 
 }

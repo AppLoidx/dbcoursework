@@ -37,8 +37,9 @@ public class Film {
     @ManyToOne
     private Company company;
 
-    @OneToMany(mappedBy = "film")
-    private List<Scene> sceneList;
+    @Builder.Default
+    @OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
+    private List<Scene> sceneList = new ArrayList<>();
 
     @Builder.Default
     @OneToMany(mappedBy = "film", cascade = CascadeType.ALL)

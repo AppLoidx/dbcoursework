@@ -2,10 +2,7 @@ package com.itmoprofessionals.dbcoursework.generator;
 
 import antlr.collections.impl.IntRange;
 import com.github.javafaker.Faker;
-import com.itmoprofessionals.dbcoursework.domain.employee.DocumentType;
-import com.itmoprofessionals.dbcoursework.domain.employee.Employee;
-import com.itmoprofessionals.dbcoursework.domain.employee.EmployeeDocs;
-import com.itmoprofessionals.dbcoursework.domain.employee.Sex;
+import com.itmoprofessionals.dbcoursework.domain.employee.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,6 +24,7 @@ public final class EmployeeGenerator {
                 .sex(faker.random().nextBoolean() ? Sex.FEMALE : Sex.MALE)
                 .build();
 
+        employee.getExperienceList().add(Experience.random(employee));
         employee.getDocs().add(docsGenerator(employee));
 
         return employee;

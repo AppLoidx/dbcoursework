@@ -1,6 +1,7 @@
 package com.itmoprofessionals.dbcoursework.domain.item;
 
 import com.itmoprofessionals.dbcoursework.domain.scene.Occupation;
+import com.itmoprofessionals.dbcoursework.domain.scene.Scene;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,4 +35,7 @@ public class Prop {
 
     @OneToMany
     private List<Occupation> occupationList;
+
+    @ManyToMany
+    private List<Scene> scene;
 }

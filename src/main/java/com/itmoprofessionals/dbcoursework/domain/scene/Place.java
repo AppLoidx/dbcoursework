@@ -1,5 +1,7 @@
 package com.itmoprofessionals.dbcoursework.domain.scene;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +12,8 @@ import java.util.UUID;
 @Entity
 @Data
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class Place {
     @Id
     @GeneratedValue
@@ -23,9 +27,6 @@ public class Place {
     @Column(nullable = false)
     private String country;
 
-    private double longitude;
-    private double latitude;
-
     @Column(nullable = false)
     private String name;
 
@@ -37,6 +38,6 @@ public class Place {
 
     // mapped relatives
 
-    @OneToMany(mappedBy = "scene")
+    @ManyToMany(mappedBy = "place")
     private List<Scene> sceneList;
 }

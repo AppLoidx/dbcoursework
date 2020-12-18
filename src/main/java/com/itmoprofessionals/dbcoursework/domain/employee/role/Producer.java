@@ -4,10 +4,7 @@ import com.itmoprofessionals.dbcoursework.domain.film.Prediction;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -21,7 +18,7 @@ public class Producer extends EmployeeRole {
     @GeneratedValue
     private UUID id;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Prediction> predictions = new ArrayList<>();
 
     @Override

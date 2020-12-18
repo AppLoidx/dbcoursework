@@ -2,6 +2,7 @@ package com.itmoprofessionals.dbcoursework.generator;
 
 import com.itmoprofessionals.dbcoursework.domain.employee.Employee;
 import com.itmoprofessionals.dbcoursework.domain.employee.role.*;
+import com.itmoprofessionals.dbcoursework.domain.film.Prediction;
 import com.itmoprofessionals.dbcoursework.domain.item.Equipment;
 import com.itmoprofessionals.dbcoursework.domain.scene.Occupation;
 import org.joda.time.DateTime;
