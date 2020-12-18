@@ -2,8 +2,7 @@ package com.itmoprofessionals.dbcoursework.domain.employee;
 
 import com.itmoprofessionals.dbcoursework.domain.Company;
 import com.itmoprofessionals.dbcoursework.domain.employee.role.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,6 +11,9 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @Data
+@Builder
+@AllArgsConstructor
+@ToString(exclude = {"employee", "company", "cameraman", "actor", "director", "producer", "scriptWriter"})
 public class Contract {
     @Id
     @GeneratedValue

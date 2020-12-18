@@ -21,6 +21,11 @@ public class Schedule {
     private Date startTime;
     private Date endTime;
 
-    @OneToOne
+    @OneToOne(mappedBy = "schedule")
     private Scene scene;
+
+    public Schedule(Date startTime, Date endTime) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
 }

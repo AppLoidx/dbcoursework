@@ -1,5 +1,7 @@
 package com.itmoprofessionals.dbcoursework.domain.employee;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +11,8 @@ import java.util.UUID;
 @Entity
 @Data
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class EmployeeDocs {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,4 +31,14 @@ public class EmployeeDocs {
 
     @ManyToOne
     private Employee owner;
+
+    @Override
+    public String toString() {
+        return "EmployeeDocs{" +
+                "id=" + id +
+                ", workBookId=" + workBookId +
+                ", documentId=" + documentId +
+                ", documentType=" + documentType +
+                '}';
+    }
 }

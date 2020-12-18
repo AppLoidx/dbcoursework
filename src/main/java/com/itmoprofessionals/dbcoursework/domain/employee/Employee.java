@@ -1,17 +1,22 @@
 package com.itmoprofessionals.dbcoursework.domain.employee;
 
 import com.itmoprofessionals.dbcoursework.domain.employee.role.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
 @Data
-public class Employee   {
+@Builder
+@AllArgsConstructor
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -36,31 +41,44 @@ public class Employee   {
 
     // relatives
 
-    @OneToMany(mappedBy = "owner")
-    private List<EmployeeDocs> docs;
+    @Builder.Default
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    private List<EmployeeDocs> docs = new ArrayList<>();
 
 
     // mapped relatives
 
-    @OneToMany(mappedBy = "employee")
-    private List<Experience> experienceList;
+    @Builder.Default
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Experience> experienceList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "employee")
-    private List<Actor> actorList;
+    @Builder.Default
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Actor> actorList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "employee")
-    private List<Cameraman> cameramanList;
+    @Builder.Default
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Cameraman> cameramanList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "employee")
-    private List<Director> directorList;
 
-    @OneToMany(mappedBy = "employee")
-    private List<Producer> producerList;
+    @Builder.Default
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Director> directorList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "employee")
-    private List<ScriptWriter> scriptWriterList;
 
-    @OneToMany(mappedBy = "employee")
-    private List<Contract> contracts;
+    @Builder.Default
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Producer> producerList = new ArrayList<>();
+
+
+    @Builder.Default
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<ScriptWriter> scriptWriterList = new ArrayList<>();
+
+
+    @Builder.Default
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Contract> contracts = new ArrayList<>();
+
 
 }

@@ -2,6 +2,8 @@ package com.itmoprofessionals.dbcoursework.domain;
 
 import com.itmoprofessionals.dbcoursework.domain.employee.Contract;
 import com.itmoprofessionals.dbcoursework.domain.film.Film;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +15,11 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @Data
+@Builder
+@AllArgsConstructor
 public class Company {
+
+
     @Id
     @GeneratedValue
     private UUID id;
@@ -43,11 +49,13 @@ public class Company {
 
     // Mapped relatives
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Film> films;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Contract> contracts;
+
+
 
 
     @Override

@@ -21,9 +21,6 @@ public class ScriptWriter extends EmployeeRole {
     @GeneratedValue
     private UUID id;
 
-    @ManyToMany
-    private List<Equipment> equipmentList;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

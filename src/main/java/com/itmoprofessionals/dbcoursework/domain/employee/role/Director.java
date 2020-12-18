@@ -1,6 +1,7 @@
 package com.itmoprofessionals.dbcoursework.domain.employee.role;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;

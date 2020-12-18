@@ -1,6 +1,8 @@
 package com.itmoprofessionals.dbcoursework.domain.scene;
 
 import com.itmoprofessionals.dbcoursework.domain.film.Film;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +13,8 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @Data
+@Builder
+@AllArgsConstructor
 public class Scene {
     @Id
     @GeneratedValue
@@ -29,17 +33,19 @@ public class Scene {
 
     // relatives
 
-    @OneToOne
+    @ManyToOne
     private Film film;
 
     @ManyToOne
     private Scene scene;
+
+    @OneToOne
+    private Schedule schedule;
 
     // mapped relatives
 
     @OneToMany(mappedBy = "scene")
     private List<Occupation> occupationList;
 
-    @OneToOne
-    private Schedule schedule;
+
 }

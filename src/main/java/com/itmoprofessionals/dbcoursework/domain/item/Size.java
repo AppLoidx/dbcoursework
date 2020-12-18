@@ -19,4 +19,13 @@ public class Size {
     private double x;
     private double y;
     private double z;
+
+    public static Size of(double x, double y, double z) {
+        Size size = new Size();
+        size.setX(x);
+        size.setY(y);
+        size.setZ(z);
+
+        return size;
+    }
 }

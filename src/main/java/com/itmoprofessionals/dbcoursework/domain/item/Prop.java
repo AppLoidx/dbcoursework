@@ -1,6 +1,8 @@
 package com.itmoprofessionals.dbcoursework.domain.item;
 
 import com.itmoprofessionals.dbcoursework.domain.scene.Occupation;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +14,8 @@ import java.util.UUID;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Prop {
     @GeneratedValue
     @Id
@@ -25,7 +29,7 @@ public class Prop {
 
     // relatives
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Size size;
 
     @OneToMany

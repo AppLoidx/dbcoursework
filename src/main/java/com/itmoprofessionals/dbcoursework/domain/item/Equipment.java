@@ -1,18 +1,23 @@
 package com.itmoprofessionals.dbcoursework.domain.item;
 
-import com.itmoprofessionals.dbcoursework.domain.employee.role.ScriptWriter;
+import com.itmoprofessionals.dbcoursework.domain.employee.role.*;
 import com.itmoprofessionals.dbcoursework.domain.scene.Occupation;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
 @Data
+@AllArgsConstructor
+@Builder
 public class Equipment {
     @Id
     @GeneratedValue
@@ -25,15 +30,33 @@ public class Equipment {
     private String model;
     private String name;
 
+    @Builder.Default
     @ManyToMany(mappedBy = "equipmentList")
-    private List<ScriptWriter> scriptWriter;
+    private List<Actor> actorList = new ArrayList<>();
 
-    @OneToOne
+    @Builder.Default
+    @ManyToMany(mappedBy = "equipmentList")
+    private List<Cameraman> cameramanList = new ArrayList<>();
+
+    @Builder.Default
+    @ManyToMany(mappedBy = "equipmentList")
+    private List<Director> directorList = new ArrayList<>();
+
+    @Builder.Default
+    @ManyToMany(mappedBy = "equipmentList")
+    private List<Producer> producerList = new ArrayList<>();
+
+    @Builder.Default
+    @ManyToMany(mappedBy = "equipmentList")
+    private List<ScriptWriter> scriptWriterList = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Size size;
 
     // relatives
 
-    @OneToMany
-    private List<Occupation> occupationList;
+    @Builder.Default
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Occupation> occupationList = new ArrayList<>();
 
 }
