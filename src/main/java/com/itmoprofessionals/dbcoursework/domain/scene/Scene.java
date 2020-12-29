@@ -38,9 +38,6 @@ public class Scene {
     @ManyToOne
     private Film film;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Scene scene;
-
     @OneToOne(cascade = CascadeType.ALL)
     private Schedule schedule;
 
@@ -52,11 +49,6 @@ public class Scene {
     @Builder.Default
     @OneToMany(mappedBy = "scene", cascade = CascadeType.ALL)
     private List<Occupation> occupationList = new ArrayList<>();
-
-    @Builder.Default
-    @ManyToMany(mappedBy = "scene", cascade = CascadeType.ALL)
-    private List<Prop> props = new ArrayList<>();
-
 
 
 }

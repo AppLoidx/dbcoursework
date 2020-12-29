@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,7 +32,7 @@ public class Employee {
     private String surname;
 
     @Column(nullable = false)
-    private Integer age;
+    private Date birthDate;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -79,6 +81,14 @@ public class Employee {
     @Builder.Default
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Contract> contracts = new ArrayList<>();
+
+    public String fullName() {
+        return name + " " + surname;
+    }
+
+    public String simpleBirthDate() {
+        return new DateTime(this.birthDate).toString("dd/MM/YYYY");
+    }
 
 
 }

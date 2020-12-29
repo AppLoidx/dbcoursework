@@ -17,7 +17,7 @@ class EmployeeGeneratorTest {
         Employee employee = EmployeeGenerator.generate();
         assertNotNull(employee.getName());
         assertNotNull(employee.getSurname());
-        assertNotNull(employee.getAge());
+        assertNotNull(employee.getBirthDate());
         assertNotNull(employee.getBiography());
         assertNotNull(employee.getDocs());
         assertFalse(employee.getDocs().isEmpty());

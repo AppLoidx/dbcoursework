@@ -1,0 +1,71 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Главная</title>
+</head>
+
+<body>
+<div class="container">
+    <h1>Сотрудник</h1>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Имя</td>
+                <td>Фамилия</td>
+                <td>Дата рождения</td>
+                <td>Пол</td>
+            </tr>
+
+            </thead>
+
+            <tbody>
+            <tr>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.surname}"></td>
+                <td th:text="${employee.simpleBirthDate()}"></td>
+                <td th:text="${employee.sex.simpleName()}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h4>Биография</h4>
+        <div>
+            <span th:text="${employee.biography}"></span>
+        </div>
+
+        <hr/>
+
+        <h4>Участие в фильмах</h4>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Фильм</th>
+                <th>Роль</th>
+                <th>Компания</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each=" contract : ${employee.contracts}">
+                <td><a th:href="'/film/' + ${contract.film.id}" th:text="${contract.film.name}"></a></td>
+                <td th:text="${contract.getRoleName().roleName()}"></td>
+                <td>
+                    <a th:href="'/company/' + ${contract.company.id}" th:text="${contract.company.name}"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+</body>
+</html>

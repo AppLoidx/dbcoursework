@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,9 +34,7 @@ public class Prop {
     @OneToOne(cascade = CascadeType.ALL)
     private Size size;
 
-    @OneToMany
-    private List<Occupation> occupationList;
-
-    @ManyToMany
-    private List<Scene> scene;
+    @Builder.Default
+    @OneToMany(mappedBy = "prop")
+    private List<Occupation> occupationList = new ArrayList<>();
 }

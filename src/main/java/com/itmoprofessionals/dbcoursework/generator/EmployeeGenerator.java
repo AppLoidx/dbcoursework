@@ -3,6 +3,7 @@ package com.itmoprofessionals.dbcoursework.generator;
 import antlr.collections.impl.IntRange;
 import com.github.javafaker.Faker;
 import com.itmoprofessionals.dbcoursework.domain.employee.*;
+import org.joda.time.DateTime;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +20,8 @@ public final class EmployeeGenerator {
         Employee employee = Employee.builder()
                 .name(faker.name().firstName())
                 .surname(faker.name().lastName())
-                .age(faker.number().numberBetween(14, 88))
+                .birthDate(faker.date().between(DateTime.now().minusYears(80).toDate(),
+                        DateTime.now().minusYears(14).toDate()))
                 .biography(DescriptionGenerator.generateDescription())
                 .sex(faker.random().nextBoolean() ? Sex.FEMALE : Sex.MALE)
                 .build();

@@ -15,8 +15,10 @@
     <description>Coursework for db lessons</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
+    <packaging>jar</packaging>
+
 
     <dependencies>
         <dependency>
@@ -26,6 +28,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
         </dependency>
 
         <dependency>
@@ -67,9 +74,28 @@
             <version>2.10.8</version>
         </dependency>
 
+
+        <!--        database migration-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
+        <finalName>coursework</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

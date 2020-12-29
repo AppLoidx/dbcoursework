@@ -17,33 +17,33 @@ public final class FilmGenerator {
                 .company(company)
                 .synopsis(DescriptionGenerator.generateDescription())
                 .build();
+
         company.getFilms().add(film);
 
         personal.getActorList().forEach(a -> {
             a.setFilm(film);
-            a.setContract(ContractGenerator.createContract(company, a));
+            a.setContract(ContractGenerator.createContract(company, a, film));
         });
 
         personal.getCameramanList().forEach(c -> {
             c.setFilm(film);
-            c.setContract(ContractGenerator.createContract(company, c));
+            c.setContract(ContractGenerator.createContract(company, c, film));
         });
 
         personal.getDirectorList().forEach(d -> {
             d.setFilm(film);
-            d.setContract(ContractGenerator.createContract(company, d));
-
+            d.setContract(ContractGenerator.createContract(company, d, film));
         });
 
         personal.getProducerList().forEach(p -> {
             p.setFilm(film);
-            p.setContract(ContractGenerator.createContract(company, p));
+            p.setContract(ContractGenerator.createContract(company, p, film));
             p.getPredictions().add(PredictionGenerator.createPrediction(p));
         });
 
         personal.getScriptWriterList().forEach(sw -> {
             sw.setFilm(film);
-            sw.setContract(ContractGenerator.createContract(company, sw));
+            sw.setContract(ContractGenerator.createContract(company, sw, film));
         });
 
         film.setActorList(personal.getActorList());
@@ -55,6 +55,6 @@ public final class FilmGenerator {
     }
 
     public static String randomFilmName() {
-        return faker.funnyName().name();
+        return faker.elderScrolls().creature();
     }
 }

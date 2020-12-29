@@ -51,8 +51,11 @@ public final class SceneGenerator {
                     .schedule(new Schedule(DateTime.now().plusHours(sceneOrder + 1).toDate(), DateTime.now().plusHours(sceneOrder + 2).toDate()))
                     .build();
 
-            IntStream.range(0, faker.random().nextInt(5, 200))
-                    .forEach(n -> PropGenerator.createProp(scene));
+            List<Prop> collect = IntStream.range(0, faker.random().nextInt(5, 50))
+                    .mapToObj(n -> PropGenerator.createProp(scene))
+                    .collect(Collectors.toList());
+
+
 
             scenes.add(scene);
 

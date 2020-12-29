@@ -1,5 +1,19 @@
 package com.itmoprofessionals.dbcoursework.domain.employee;
 
 public enum Sex {
-    MALE, FEMALE
+    MALE {
+        @Override
+        public String simpleName() {
+            return "муж";
+        }
+    },
+
+    FEMALE {
+        @Override
+        public String simpleName() {
+            return "жен";
+        }
+    };
+
+    public abstract String simpleName();
 }

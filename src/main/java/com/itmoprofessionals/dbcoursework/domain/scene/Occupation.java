@@ -26,4 +26,7 @@ public class Occupation {
     @ManyToOne
     private Scene scene;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Prop prop;
+
 }

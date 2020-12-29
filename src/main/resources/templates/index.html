@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Главная</title>
+</head>
+<body>
+<div class="container flex-column d-flex justify-content-center align-middle h-100">
+    <h1 class="h1 fs-2 text">Добро пожаловать в проект для менеджента съемок кино!</h1>
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item text-center">
+                <a class="text-decoration-none fw-bold pointer-event" href="/companies">Компании</a>
+            </li>
+            <li class="list-group-item text-center">
+                <a class="text-decoration-none fw-bold pointer-event" href="/films">Фильмы</a>
+            </li>
+            <li class="list-group-item text-center">
+                <a class="text-decoration-none fw-bold pointer-event" href="/employees">Все работники</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

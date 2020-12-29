@@ -5,10 +5,10 @@ import com.itmoprofessionals.dbcoursework.domain.Company;
 import com.itmoprofessionals.dbcoursework.domain.film.Film;
 import com.itmoprofessionals.dbcoursework.generator.*;
 import com.itmoprofessionals.dbcoursework.repo.CompanyRepo;
+import com.itmoprofessionals.dbcoursework.repo.item.PropRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +18,18 @@ import java.util.List;
 public class GeneratorService {
 
     private final CompanyRepo companyRepo;
+    private final PropRepo propRepo;
     private final Faker faker = new Faker();
-    public GeneratorService(CompanyRepo companyRepo) {
+    public GeneratorService(CompanyRepo companyRepo, PropRepo propRepo) {
         this.companyRepo = companyRepo;
+        this.propRepo = propRepo;
     }
 
-    @PostConstruct
-    public void init() {
+
+    public void generateData() {
         log.info("Start sql script");
         List<Company> companyList = new ArrayList<>();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 2; i++) {
             log.info("Creating company...");
             companyList.add(createCompany());
         }
@@ -40,7 +42,7 @@ public class GeneratorService {
     @Transactional
     public Company createCompany() {
         Company company = CompanyGenerator.createCompany();
-        for (int i = 0; i < faker.random().nextInt(0, 5); i++) {
+        for (int i = 0; i < faker.random().nextInt(3, 5); i++) {
             generateFilm(company);
         }
 
@@ -54,5 +56,6 @@ public class GeneratorService {
         );
 
         film.getSceneList().addAll(SceneGenerator.generateScenes(film, 100));
+
     }
 }

@@ -1,0 +1,10 @@
+create index on contract using btree (created_date);
+create index on contract using btree (end_date);
+create index on contract using btree (interrupted_date);
+create index on place using hash (country);
+create index on place using hash (city);
+create index on prediction using btree (created_date);
+create index on occupation using btree (occupation_start);
+create index on equipment using hash (type);
+create index on prop using hash (type);
+create index on experience using hash (role);

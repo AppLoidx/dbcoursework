@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Главная</title>
+</head>
+
+
+<body>
+
+<div class="container">
+    <h1>Компании</h1>
+    <div>
+        <ul th:each="company : ${companies}">
+            <li>
+                <a th:href="'company/' + ${company.id}">
+                    <span th:text="${company.name}"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+</body>
+</html>

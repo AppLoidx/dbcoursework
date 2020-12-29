@@ -1,0 +1,56 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="ru">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Главная</title>
+</head>
+
+<body>
+<div class="container">
+    <h1 th:text="'Фильм ' + ${film.name}"></h1>
+    <div>
+        <h5>Синопсис</h5>
+        <span th:text="${film.synopsis}"></span>
+    </div>
+    <hr>
+    <div>
+
+        <h4 class="mx-auto text-center">Рабочий состав</h4>
+
+        <h5>Директор</h5>
+        <ul th:each="item : ${film.directorList}" class="list-group">
+            <li class="list-group-item"><a th:href="${'/employee/' + item.employee.id}" th:text="${item.employee.fullName()}"></a></li>
+        </ul>
+        <h5>Продюсер</h5>
+        <ul th:each="item : ${film.producerList}" class="list-group">
+            <li class="list-group-item"><a th:href="${'/employee/' + item.employee.id}" th:text="${item.employee.fullName()}"></a></li>
+        </ul>
+        <h5>Актеры</h5>
+        <ul th:each="item : ${film.actorList}" class="list-group">
+            <li class="list-group-item"><a th:href="${'/employee/' + item.employee.id}" th:text="${item.employee.fullName()}"></a></li>
+        </ul>
+
+        <h5>Операторы</h5>
+        <ul th:each="item : ${film.cameramanList}" class="list-group">
+            <li class="list-group-item"><a th:href="${'/employee/' + item.employee.id}" th:text="${item.employee.fullName()}"></a></li>
+        </ul>
+
+        <h5>Сценаристы</h5>
+        <ul th:each="item : ${film.scriptWriterList}" class="list-group">
+            <li class="list-group-item"><a th:href="${'/employee/' + item.employee.id}" th:text="${item.employee.fullName()}"></a></li>
+        </ul>
+
+
+
+    </div>
+</div>
+
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>
