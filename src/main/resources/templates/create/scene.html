@@ -1,0 +1,47 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <title>Создание сцены</title>
+</head>
+<body class="container">
+
+<h3>Создание сцены</h3>
+<form action="/api/v1/scene" method="post">
+
+    <label for="company-name">Наименование сцены</label>
+    <input id="company-name" name="name" type="text" class="form-control" placeholder="Summertime LTD">
+
+    <label for="company-type">Для фильма</label>
+    <select name="film" id="company-type" class="form-control" >
+        <option th:each="entry : ${films.entrySet()}" th:value="${entry.getKey()}" th:text="${entry.getValue()}"></option>
+    </select>
+
+    <label for="synopsis">Описание</label>
+    <textarea id="synopsis" name="description" type="text" class="form-control"></textarea>
+
+    <label for="order">Порядковый номер</label>
+    <input id="order" name="sceneOrder" type="text" class="form-control">
+    <div class="form-group">
+        <label for="startDate">Начало (ДД/ММ/ГГГГ)</label>
+        <input id="startDate" name="startDate" type="text" class="form-control col-4" />
+        <label for="endDate">Конец (ДД/ММ/ГГГГ)</label>
+        <input id="endDate" name="endDate" type="text" class="form-control col-4" />
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-primary m-1">Создать</button>
+
+</form>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>

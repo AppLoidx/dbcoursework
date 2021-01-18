@@ -1,6 +1,6 @@
 -- Add birth date instead of age
 
-drop function if exists create_worker;
+drop function if exists create_worker();
 create or replace function create_worker(new_employee_uuid uuid,
                                          new_name varchar,
                                          new_surname varchar,
@@ -24,7 +24,7 @@ begin
         values (new_employee_uuid, new_birthdate, bio, new_name, gender, new_surname)
         returning id into id_employee;
 
-        call create_document(
+        SELECT create_document(
                 id_employee,
                 new_document_uuid,
                 new_document_type,

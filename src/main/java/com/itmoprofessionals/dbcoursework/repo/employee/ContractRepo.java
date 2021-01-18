@@ -13,3 +13,4 @@ public interface ContractRepo extends JpaRepository<Contract, UUID> {
     @Query(value = "select * from active_cameraman()", nativeQuery = true)
     List<Contract> activeCameraman();
 }
+

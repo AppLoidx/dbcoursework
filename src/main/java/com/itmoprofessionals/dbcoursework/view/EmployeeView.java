@@ -29,7 +29,7 @@ public class EmployeeView {
             model.addAttribute("employee", employee.get());
             return "employee";
         } else {
-            return "404";
+            return "error";
         }
 
     }

@@ -1,0 +1,43 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <title>Создание работника</title>
+</head>
+<body class="container">
+
+<h3>Создание работника</h3>
+<form action="/api/v1/employee" method="post">
+
+    <label for="name">Имя</label>
+    <input id="name" name="name" type="text" class="form-control">
+
+    <label for="surname">Фамилия</label>
+    <input id="surname" name="surname" type="text" class="form-control">
+
+    <label for="birthDate">Дата рождения (ДД/ММ/ГГГГ)</label>
+    <input id="birthDate" name="birthDate" type="text" class="form-control">
+
+    <label for="sex">Пол</label>
+    <select name="sex" id="sex" th:default="'MALE'" class="form-control">
+        <option value="MALE" >Муж</option>
+        <option value="FEMALE">Жен</option>
+    </select>
+
+    <label for="biography">Биография</label>
+    <textarea id="biography" name="biography" type="text" class="form-control"></textarea>
+
+
+    <button type="submit" class="btn btn-primary m-1">Создать</button>
+
+</form>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>

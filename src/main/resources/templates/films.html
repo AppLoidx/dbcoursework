@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Фильмы</title>
+
+    <!--    header ends here-->
+
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Все фильмы</h1>
+
+    <ul th:each="film : ${films}" class="list-group">
+        <li class="list-group-item my-1">
+            <div>
+                <a th:href="'/film/' + ${film.id}"><h5 th:text="${film.name}"></h5></a>
+                <span th:text="${film.synopsis}"></span>
+                <hr/>
+                <a th:href="'/company/' + ${film.company.id}">
+                    <span th:text="'Фильмы снят компанией : ' + ${film.company.name}"></span>
+                </a>
+            </div>
+
+        </li>
+    </ul>
+
+    <!--    body ends here-->
+
+    <footer class="container d-flex flex-column">
+        All rights not reserved 2021
+    </footer>
+
+    <!--    footer ends here-->
+
+</div>
+</body>
+</html>

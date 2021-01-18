@@ -11,12 +11,23 @@
 
 <body>
 <div class="container">
+
     <h1 th:text="'Фильм ' + ${film.name}"></h1>
+
     <div>
         <h5>Синопсис</h5>
         <span th:text="${film.synopsis}"></span>
     </div>
+
     <hr>
+
+    <div>
+        <h4>Сцены</h4>
+        <ul th:each="scene : ${film.sceneList}" class="list-group">
+            <li class="list-group-item"><a th:href="${'/scene/' + scene.id.toString()}" th:text="${scene.getName()}"></a></li>
+        </ul>
+    </div>
+
     <div>
 
         <h4 class="mx-auto text-center">Рабочий состав</h4>

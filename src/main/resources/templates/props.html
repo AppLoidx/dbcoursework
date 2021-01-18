@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Фильмы</title>
+
+    <!--    header ends here-->
+
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Все предметы</h1>
+
+    <table style="border:1px solid black" class="table">
+        <thead>
+        <tr>
+            <th scope="col">Наименование</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Размеры</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="prop : ${props}">
+            <td>
+                <a th:href="'/prop/' + ${prop.getId().toString()}"><span th:text="${prop.name}"></span></a>
+            </td>
+            <td>
+                <span th:text="${prop.getPrice() + ' ₽'}"></span>
+            </td>
+            <td>
+                <span th:text="${prop.getSize().toString()}"></span>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <!--    body ends here-->
+
+    <footer class="container d-flex flex-column">
+        All rights not reserved 2021
+    </footer>
+
+    <!--    footer ends here-->
+
+</div>
+</body>
+</html>

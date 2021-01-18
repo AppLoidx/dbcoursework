@@ -19,7 +19,7 @@ public final class PropGenerator {
     public static Prop createProp(Scene scene) {
         Prop prop = Prop
                 .builder()
-                .name(faker.funnyName().name())
+                .name(faker.commerce().productName())
                 .price(BigDecimal.valueOf(faker.random().nextInt(1000, 100_000)))
                 .size(Size.of(faker.random().nextInt(1000), faker.random().nextInt(1000), faker.random().nextInt(1000)))
                 .type(faker.app().name())

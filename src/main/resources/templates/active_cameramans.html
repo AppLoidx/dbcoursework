@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Главная</title>
+</head>
+
+
+<body>
+
+<div class="container">
+    <h1>Активные работники</h1>
+    <div>
+        <ul th:each="contract : ${cameramans}">
+            <li>
+                <a th:href="'/employee/' + ${contract.employee.id}">
+                    <span th:text="${contract.employee.fullName()}"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+</body>
+</html>

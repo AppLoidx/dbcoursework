@@ -1,8 +1,6 @@
 package com.itmoprofessionals.dbcoursework.view;
 
 import com.itmoprofessionals.dbcoursework.domain.Company;
-import com.itmoprofessionals.dbcoursework.domain.employee.Contract;
-import com.itmoprofessionals.dbcoursework.domain.employee.Employee;
 import com.itmoprofessionals.dbcoursework.repo.CompanyRepo;
 import com.itmoprofessionals.dbcoursework.util.IdUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -43,7 +40,7 @@ public class CompanyView {
         } else {
             log.info("Company is not found");
             modelAndView.setStatus(HttpStatus.BAD_REQUEST);
-            return "404";
+            return "error";
         }
 
     }

@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Фильмы</title>
+
+    <!--    header ends here-->
+
+</head>
+
+<body>
+<div class="container">
+
+    <h1 th:text="'Сцена : ' + ${scene.getName()}"></h1>
+    <span th:text="'Серийный номер: ' + ${scene.getId()}"></span>
+    <br>
+    <a th:href="'/film/' + ${scene.getFilm().getId().toString()}" th:text="'Фильм: ' + ${scene.getFilm().name}"></a>
+    <br>
+    <span th:text="'Номер сцены: ' + ${scene.getSceneOrder()}"></span>
+    <h3>Описание сцены</h3>
+    <span th:text="${scene.getDescription()}"></span>
+    <h3>Расписание</h3>
+    <span th:text="'Начало съемок: ' + ${scene.getSchedule().prettyStartTime()}"></span>
+    <br>
+    <span th:text="'Конец съемок: ' + ${scene.getSchedule().prettyEndTime()}"></span>
+
+    <h3>Использованные муляжи</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Сцена</th>
+            <th>Начиная с</th>
+            <th>До</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="occupation : ${scene.getOccupationList()}">
+
+            <td>
+                <a th:text="${occupation.getProp().getName()}" th:href="'/prop/' + ${occupation.getProp().getId()}"></a>
+            </td>
+            <td th:text="${occupation.prettyOccupationStartDate()}"></td>
+            <td th:text="${occupation.prettyOccupationEndDate()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--    body ends here-->
+
+    <footer class="container d-flex flex-column">
+        All rights not reserved 2021
+    </footer>
+
+    <!--    footer ends here-->
+
+</div>
+</body>
+</html>

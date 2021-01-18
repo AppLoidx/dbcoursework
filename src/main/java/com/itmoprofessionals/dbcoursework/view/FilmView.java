@@ -32,7 +32,7 @@ public class FilmView {
             model.addAttribute("film", optionalFilm.get());
             return "film";
         } else {
-            return "404";
+            return "error";
         }
     }
 }

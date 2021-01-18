@@ -28,4 +28,9 @@ public class Size {
 
         return size;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%.2fx%.2fx%.2f", x, y, z);
+    }
 }

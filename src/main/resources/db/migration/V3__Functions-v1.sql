@@ -46,7 +46,7 @@ begin
         values (new_employee_uuid, new_age, bio, new_name, gender, new_surname)
         returning id into id_employee;
 
-        call create_document(
+        SELECT create_document(
                 id_employee,
                 new_document_uuid,
                 new_document_type,

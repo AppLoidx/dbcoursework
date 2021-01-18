@@ -7,6 +7,6 @@ public final class DescriptionGenerator {
     private DescriptionGenerator() {}
 
     public static String generateDescription() {
-        return faker.lorem().sentence(100);
+        return faker.shakespeare().romeoAndJulietQuote();
     }
 }

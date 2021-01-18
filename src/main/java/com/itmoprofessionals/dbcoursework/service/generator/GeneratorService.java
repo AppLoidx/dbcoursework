@@ -5,7 +5,6 @@ import com.itmoprofessionals.dbcoursework.domain.Company;
 import com.itmoprofessionals.dbcoursework.domain.film.Film;
 import com.itmoprofessionals.dbcoursework.generator.*;
 import com.itmoprofessionals.dbcoursework.repo.CompanyRepo;
-import com.itmoprofessionals.dbcoursework.repo.item.PropRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +17,9 @@ import java.util.List;
 public class GeneratorService {
 
     private final CompanyRepo companyRepo;
-    private final PropRepo propRepo;
     private final Faker faker = new Faker();
-    public GeneratorService(CompanyRepo companyRepo, PropRepo propRepo) {
+    public GeneratorService(CompanyRepo companyRepo) {
         this.companyRepo = companyRepo;
-        this.propRepo = propRepo;
     }
 
 

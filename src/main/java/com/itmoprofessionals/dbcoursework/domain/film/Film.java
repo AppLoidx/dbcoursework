@@ -70,5 +70,12 @@ public class Film {
     @OneToMany(mappedBy = "film", cascade = ALL)
     private List<Contract> contracts;
 
-
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", synopsis='" + synopsis + '\'' +
+                '}';
+    }
 }

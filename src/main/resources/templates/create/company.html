@@ -1,0 +1,48 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <title>Создание компании</title>
+</head>
+<body class="container">
+
+<h3>Создание компании</h3>
+<form action="/api/v1/company" method="post">
+
+    <label for="company-name">Имя компании</label>
+    <input id="company-name" name="name" type="text" class="form-control" placeholder="Summertime LTD">
+
+    <label for="managerLegalName">Полное имя руководителя</label>
+    <input id="managerLegalName" name="managerLegalName" type="text" class="form-control"/>
+
+
+    <label for="company-type">Тип организации</label>
+    <select name="businessType" id="company-type" class="form-control">
+        <option value="Sole Proprietorship">Sole Proprietorship</option>
+        <option value="Partnership">Partnership</option>
+        <option value="Corporation">Corporation</option>
+        <option value="S Corporation">S Corporation</option>
+        <option value="LLC">Limited Liability Company (LLC)</option>
+    </select>
+
+    <label for="bik">БИК</label>
+    <input id="bik" name="bik" type="text" class="form-control">
+    <label for="inn">ИНН</label>
+    <input id="inn" name="inn" type="text" class="form-control">
+    <label for="ogrn">ОГРН</label>
+    <input id="ogrn" name="ogrn" type="text" class="form-control">
+
+
+    <button type="submit" class="btn btn-primary m-1">Создать</button>
+
+</form>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>

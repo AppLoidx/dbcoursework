@@ -13,18 +13,7 @@
 <div class="container">
     <h1 th:text="'Компания &quot;' + ${company.businessType} + ' ' + ${company.name} + '&quot;'"></h1>
     <div>
-        СЕО: <span th:text="${company.managerLegalName}"></span>
-    </div>
-    <div>
-        <a class="btn btn-link"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseDocs"
-                aria-expanded="false"
-                aria-controls="collapseDocs">
-            Показать данные о компании
-        </a>
-        <div class="collapse" id="collapseDocs">
+
             <div class="card card-body">
                 <ul class="list-group">
                     <li class="list-group-item" th:text="'ИНН: ' + ${company.inn}"></li>
@@ -33,7 +22,6 @@
                     <li class="list-group-item" th:text="'Генеральный директор: ' + ${company.managerLegalName}"></li>
                 </ul>
             </div>
-        </div>
     </div>
     <div>
         <h3>Фильмы</h3>

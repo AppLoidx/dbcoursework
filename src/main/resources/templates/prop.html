@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Фильмы</title>
+
+    <!--    header ends here-->
+
+</head>
+
+<body>
+<div class="container">
+
+    <h1 th:text="'Муляж : ' + ${prop.getName()} "></h1>
+
+    <h3>Расписание использования</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Сцена</th>
+                <th>Начиная с</th>
+                <th>До</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="occupation : ${prop.getOccupationList()}">
+<!--            <a th:href="'/scene/' + ${occupation.getScene().getId()}">-->
+                <td ><a th:href="'/scene/' + ${occupation.getScene().getId()}" th:text="${occupation.getScene().getName()}"></a></td>
+<!--            </a>-->
+            <td th:text="${occupation.prettyOccupationStartDate()}"></td>
+            <td th:text="${occupation.prettyOccupationEndDate()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--    body ends here-->
+
+    <footer class="container d-flex flex-column">
+        All rights not reserved 2021
+    </footer>
+
+    <!--    footer ends here-->
+
+</div>
+</body>
+</html>
